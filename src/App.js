@@ -6,17 +6,21 @@ import SearchPage from "./Pages/SearchPage";
 import Header from "./Components/Header";
 import logo from "./asset/images/logo.png"
 import bgImage from "./asset/images/home-bg.jpg"
+import Show from "./Components/Show/Show";
+import {useContext} from "react";
+import Loading from "./Components/Loading";
+import {LoadingShowProvider} from "./Context/LoadingContext";
+import Routers from "./routers";
+import MoviesListProvider from "./provider/MoviesListProvider";
 
 function App() {
-  return (
+    return (
     <div className="flex flex-col" style={{backgroundImage:`url(${bgImage})`}}>
       <BrowserRouter>
           <Header logo={logo}/>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/movie" element={<ShowPage />} />
-            <Route path="/search" element={<SearchPage />} />
-          </Routes>
+          <MoviesListProvider>
+              <Routers />
+          </MoviesListProvider>
       </BrowserRouter>
     </div>
   );

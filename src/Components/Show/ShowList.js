@@ -3,18 +3,19 @@ import React, {useContext} from 'react';
 import ShowItem from "./ShowItem";
 import ListDataContext from "../../Context/ListDataContext";
 
+
 function ShowList(props) {
 
-    const {moviesList} = useContext(ListDataContext)
-    const list = Array.isArray(moviesList) ? moviesList : []
+    const listContext = useContext(ListDataContext)
+    console.log(listContext)
+    const list = Array.isArray(listContext) ? listContext : []
     return (
-        <div className="flex flex-wrap  p-7 justify-center gap-4">
+        <div className="flex flex-wrap  p-7 justify-center gap-3">
             {
                 list.map((element, index) => {
-                    console.log(element.image)
                     return (
                         <div key={index}>
-                            <ShowItem imageCover={element.image.medium} />
+                            <ShowItem id={element.id} imageCover={element.image.medium} />
                         </div>
                     )
                 })

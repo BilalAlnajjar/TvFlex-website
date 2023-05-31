@@ -1,5 +1,8 @@
-import React, {createContext} from 'react';
+import {createContext } from 'react';
 
-const ListDataContext = createContext({moviesList:[]})
 
-export default ListDataContext;
+const ListDataContext = createContext([])
+
+
+
+export default ListDataContext
